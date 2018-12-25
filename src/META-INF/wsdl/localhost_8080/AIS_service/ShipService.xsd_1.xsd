@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.4.0 (wsit240-7e98ff4; 2017-08-03T21:19:54+0200) JAXWS-RI/2.3.0 JAXWS-API/2.3.0 JAXB-RI/2.3.0 JAXB-API/2.3.0 svn-revision#unknown. --><xs:schema xmlns:tns="http://service.ais/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://service.ais/">
+
+<xs:element name="addHarbor" type="tns:addHarbor"/>
+
+<xs:element name="addHarborResponse" type="tns:addHarborResponse"/>
+
+<xs:element name="addShip" type="tns:addShip"/>
+
+<xs:element name="addShipResponse" type="tns:addShipResponse"/>
+
+<xs:element name="countPosition" type="tns:countPosition"/>
+
+<xs:element name="countPositionResponse" type="tns:countPositionResponse"/>
+
+<xs:element name="downloadHarborByName" type="tns:downloadHarborByName"/>
+
+<xs:element name="downloadHarborByNameResponse" type="tns:downloadHarborByNameResponse"/>
+
+<xs:element name="downloadShipByMmsi" type="tns:downloadShipByMmsi"/>
+
+<xs:element name="downloadShipByMmsiResponse" type="tns:downloadShipByMmsiResponse"/>
+
+<xs:complexType name="downloadShipByMmsi">
+<xs:sequence>
+<xs:element name="MMSI" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="downloadShipByMmsiResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:ship" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ship">
+<xs:sequence>
+<xs:element name="flag" type="xs:string" minOccurs="0"/>
+<xs:element name="gtonnage" type="xs:int"/>
+<xs:element name="mmsi" type="xs:string" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="photo" type="xs:base64Binary" minOccurs="0"/>
+<xs:element name="vtype" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="countPosition">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="latitude" type="xs:float" minOccurs="0"/>
+<xs:element name="longitude" type="xs:float" minOccurs="0"/>
+<xs:element name="hlatitude" type="xs:float" minOccurs="0"/>
+<xs:element name="hlongitude" type="xs:float" minOccurs="0"/>
+<xs:element name="knots" type="xs:float" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="countPositionResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="downloadHarborByName">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="downloadHarborByNameResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:harbor" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="harbor">
+<xs:sequence>
+<xs:element name="country" type="xs:string" minOccurs="0"/>
+<xs:element name="latitude" type="xs:float"/>
+<xs:element name="longitude" type="xs:float"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addHarbor">
+<xs:sequence>
+<xs:element name="Name" type="xs:string" minOccurs="0"/>
+<xs:element name="Country" type="xs:string" minOccurs="0"/>
+<xs:element name="Latitude" type="xs:float" minOccurs="0"/>
+<xs:element name="Longitude" type="xs:float" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addHarborResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:harbor" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addShip">
+<xs:sequence>
+<xs:element name="MMSI" type="xs:string" minOccurs="0"/>
+<xs:element name="Name" type="xs:string" minOccurs="0"/>
+<xs:element name="Flag" type="xs:string" minOccurs="0"/>
+<xs:element name="Type" type="xs:string" minOccurs="0"/>
+<xs:element name="Photo" type="xs:base64Binary" nillable="true" minOccurs="0"/>
+<xs:element name="GrossTonnage" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addShipResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:ship" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
